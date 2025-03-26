@@ -43,14 +43,40 @@ export function SiteHeader() {
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link href="/">
           <div className="flex items-center gap-2">
-            <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/velvt_11-TCP01WCXp7jjAUls1FQiKAHwKOsUbr.png"
-              alt="Logo de Velvt"
-              width={32}
-              height={32}
-              className="object-contain"
-            />
-            <span className="font-semibold text-lg">Velvt</span>
+            {isMarketing ? (
+              <>
+                <Image
+                  src="/images/innova.png"
+                  alt="Innovación 360 MKT Logo"
+                  width={32}
+                  height={32}
+                  className="object-contain"
+                />
+                <span className="font-semibold text-lg">Innovación 360 MKT</span>
+              </>
+            ) : isSoftware ? (
+              <>
+                <Image
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/velvt_11-TCP01WCXp7jjAUls1FQiKAHwKOsUbr.png"
+                  alt="Velvt Software Logo"
+                  width={32}
+                  height={32}
+                  className="object-contain"
+                />
+                <span className="font-semibold text-lg">Velvt Software</span>
+              </>
+            ) : (
+              <>
+                <Image
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/velvt_11-TCP01WCXp7jjAUls1FQiKAHwKOsUbr.png"
+                  alt="Velvt Software Logo"
+                  width={32}
+                  height={32}
+                  className="object-contain"
+                />
+                <span className="font-semibold text-lg">Velvt</span>
+              </>
+            )}
           </div>
         </Link>
 
@@ -123,32 +149,29 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link href="/appointment">
-            <Button
-              variant="default"
-              className={`${
-                isDark && !scrolled
-                  ? "bg-white text-black hover:bg-white/90"
-                  : `bg-${isMarketing ? "customRed" : "customPurple"} text-white hover:bg-opacity-90`
-              } btn-glow`}
-            >
-              Agendar Cita
-            </Button>
-          </Link>
-          <Link href="/auth/login">
-            <Button
-              variant="default"
-              className={`${
-                isDark && !scrolled
-                  ? "bg-transparent border border-white text-white hover:bg-white/10"
-                  : "bg-black text-white hover:bg-gray-900"
-              }`}
-            >
-              Iniciar Sesión
-            </Button>
-          </Link>
+          <Button
+            variant="default"
+            className={`${
+              isDark && !scrolled
+                ? "bg-white text-black hover:bg-white/90"
+                : `bg-${isMarketing ? "customRed" : "customPurple"} text-white hover:bg-opacity-90`
+            } btn-glow`}
+          >
+            Schedule Appointment
+          </Button>
+          <Button
+            variant="default"
+            className={`${
+              isDark && !scrolled
+                ? "bg-transparent border border-white text-white hover:bg-white/10"
+                : "bg-black text-white hover:bg-gray-900"
+            }`}
+          >
+            Login
+          </Button>
         </div>
       </div>
     </header>
   )
 }
+

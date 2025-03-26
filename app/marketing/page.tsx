@@ -31,20 +31,20 @@ export default function MarketingPage() {
           <div className="container mx-auto py-16 px-4 relative z-10">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="text-white">
-              <h1 className="text-4xl md:text-5xl font-bold mb-2">STRATEGIC</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-2">INNOVACION</h1>
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-[#FFD1D1] via-[#FF5757] to-[#B30000] text-transparent bg-clip-text">
-                  MARKETING SOLUTIONS
+                  360 MKT
                 </h2>
                 <br />
                 <p className="text-gray-300 mb-8 max-w-xl">
                   <span className="text-[#FF5757]">Marketing experto</span>,{" "}
                   <span className="text-[#FF5757]">branding</span> y{" "}
-                  <span className="text-[#FF5757]">estrategia digital</span> <br />
-                  para ayudar a las empresas a construir <br />
-                  una presencia de marca poderosa y <br />
-                  optimizar su posicionamiento en el mercado.
+                  <span className="text-[#FF5757]">estrategia digital.</span> <br />
+                  Estrategias disruptivas de marketing digital <br />
+                  que conectan transforman y posicionan tu marca <br />
+                  en la era digital.
                 </p>
-
+              
                 <div className="flex gap-4 mt-8">
                   <Button
                     variant="default"
@@ -82,13 +82,13 @@ export default function MarketingPage() {
         {/* Marketing Digital y Estrategia */}
         <section className="container mx-auto py-20 px-4 marketing-bg-pattern">
           <h2 className="text-xl font-semibold mb-6 text-right" style={{ marginBottom: "45px", marginTop: "45px" }}>
-            MARKETING DIGITAL Y ESTRATEGIA
+            MARKETING DIGITAL INTEGRAL
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="marketing-card p-6 marketing-glow">
               <div className="flex justify-between mb-4">
-                <h3 className="font-bold">Marketing en Redes Sociales</h3>
+                <h3 className="font-bold">Campañas Disruptivas en Redes Sociales</h3>
                 <div className="w-10 h-10 flex items-center justify-center bg-red-100 rounded-md">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -107,8 +107,7 @@ export default function MarketingPage() {
                 </div>
               </div>
               <p className="text-sm text-gray-600">
-                Campañas estratégicas en redes sociales que involucran a tu audiencia, construyen reconocimiento de marca
-                y generan interacciones significativas en todas las plataformas.
+                Desarrollamos campañas creativas y multicanal que conectan emocionalmente con tu audiencia, generan engagement y elevan tu reputación online.
               </p>
 
               <div className="mt-6 pt-4 border-t border-gray-100">
@@ -128,14 +127,14 @@ export default function MarketingPage() {
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                     <path d="m9 11 3 3L22 4" />
                   </svg>
-                  Mayor Compromiso
+                  Conecta, inspira y fideliza
                 </div>
               </div>
             </div>
 
             <div className="marketing-card p-6 marketing-glow">
               <div className="flex justify-between mb-4">
-                <h3 className="font-bold">Optimización SEO</h3>
+                <h3 className="font-bold">Optimización SEO 360</h3>
                 <div className="w-10 h-10 flex items-center justify-center bg-orange-100 rounded-md">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -155,8 +154,7 @@ export default function MarketingPage() {
                 </div>
               </div>
               <p className="text-sm text-gray-600">
-                Estrategias SEO completas que mejoran tu posicionamiento en buscadores, aumentan el tráfico orgánico
-                y mejoran tu visibilidad en línea.
+                Implementamos estrategias SEO avanzadas combinadas con análisis de datos para potenciar tu posicionamiento y aumentar el tráfico orgánico de manera sostenible.
               </p>
 
               <div className="mt-6 pt-4 border-t border-gray-100">
@@ -176,14 +174,14 @@ export default function MarketingPage() {
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                     <path d="m9 11 3 3L22 4" />
                   </svg>
-                  Mejor Posicionamiento
+                  Posicionamiento de alto impacto
                 </div>
               </div>
             </div>
 
             <div className="marketing-card p-6 marketing-glow">
               <div className="flex justify-between mb-4">
-                <h3 className="font-bold">Marketing de Contenidos</h3>
+                <h3 className="font-bold">Marketing de Contenidos Innovador</h3>
                 <div className="w-10 h-10 flex items-center justify-center bg-yellow-100 rounded-md">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -206,8 +204,7 @@ export default function MarketingPage() {
                 </div>
               </div>
               <p className="text-sm text-gray-600">
-                Estrategias de contenido atractivas que cuentan la historia de tu marca, establecen liderazgo de pensamiento
-                y conectan con tu audiencia a un nivel más profundo.
+                Creamos narrativas digitales y contenido visual que transmiten la esencia de tu marca, estableciendo liderazgo de pensamiento y generando conexiones emocionales.
               </p>
 
               <div className="mt-6 pt-4 border-t border-gray-100">
@@ -227,7 +224,7 @@ export default function MarketingPage() {
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                     <path d="m9 11 3 3L22 4" />
                   </svg>
-                  Narrativa Compelling
+                  Contenido que cautiva y convierte
                 </div>
               </div>
             </div>
@@ -244,7 +241,7 @@ export default function MarketingPage() {
             <div className="grid md:grid-cols-3 gap-8">
               <div className="marketing-dark-card p-6 rounded-lg text-white">
                 <div className="flex justify-between mb-4">
-                  <h3 className="font-bold">IDENTIDAD DE MARCA</h3>
+                  <h3 className="font-bold">IDENTIDAD DE MARCA DISRUPTIVA</h3>
                   <div className="w-10 h-10 flex items-center justify-center bg-red-900 rounded-md">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -264,8 +261,7 @@ export default function MarketingPage() {
                   </div>
                 </div>
                 <p className="text-sm text-gray-300">
-                  Desarrollo integral de identidad de marca que crea un lenguaje visual cohesivo, estrategia de mensajería
-                  y personalidad de marca.
+                  Desarrollamos una identidad de marca única y auténtica, con un lenguaje visual coherente y una estrategia de comunicación que destaca frente a la competencia.
                 </p>
 
                 <div className="mt-6 pt-4 border-t border-gray-700">
@@ -285,14 +281,14 @@ export default function MarketingPage() {
                       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
                       <path d="m9 12 2 2 4-4" />
                     </svg>
-                    Imagen de Marca Memorable
+                    Una imagen memorable para un mercado en constante evolución
                   </div>
                 </div>
               </div>
 
               <div className="marketing-dark-card p-6 rounded-lg text-white">
                 <div className="flex justify-between mb-4">
-                  <h3 className="font-bold">INVESTIGACIÓN DE MERCADO</h3>
+                  <h3 className="font-bold">PUBLICIDAD DIGITAL TRANSFORMACIONAL</h3>
                   <div className="w-10 h-10 flex items-center justify-center bg-orange-900 rounded-md">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -319,8 +315,7 @@ export default function MarketingPage() {
                   </div>
                 </div>
                 <p className="text-sm text-gray-300">
-                  Análisis profundo de mercado e investigación de consumidores para identificar oportunidades,
-                  entender a tu audiencia e informar decisiones estratégicas.
+                  Lanzamos campañas de publicidad digital orientadas a resultados, maximizando el retorno de inversión y construyendo un reconocimiento de marca sólido y diferenciador.
                 </p>
 
                 <div className="mt-6 pt-4 border-t border-gray-700">
@@ -340,14 +335,14 @@ export default function MarketingPage() {
                       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
                       <path d="m9 12 2 2 4-4" />
                     </svg>
-                    Información de Audiencia
+                    Publicidad que impulsa el crecimiento
                   </div>
                 </div>
               </div>
 
               <div className="marketing-dark-card p-6 rounded-lg text-white">
                 <div className="flex justify-between mb-4">
-                  <h3 className="font-bold">ESTRATEGIA DE MARCA</h3>
+                  <h3 className="font-bold">EMAIL MARKETING & AUTOMATIZACIÓN</h3>
                   <div className="w-10 h-10 flex items-center justify-center bg-yellow-900 rounded-md">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -367,8 +362,7 @@ export default function MarketingPage() {
                   </div>
                 </div>
                 <p className="text-sm text-gray-300">
-                  Desarrollo de estrategia de marca integral que posiciona tu negocio para el éxito y crea un
-                  camino hacia un crecimiento sostenible.
+                  Diseñamos estrategias de email marketing automatizadas y segmentadas para nutrir leads, fidelizar clientes y generar conversiones con un mensaje personalizado.
                 </p>
 
                 <div className="mt-6 pt-4 border-t border-gray-700">
@@ -388,7 +382,7 @@ export default function MarketingPage() {
                       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
                       <path d="m9 12 2 2 4-4" />
                     </svg>
-                    Posicionamiento Estratégico
+                    Relaciones que generan resultados
                   </div>
                 </div>
               </div>
@@ -405,7 +399,7 @@ export default function MarketingPage() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="marketing-card p-6 marketing-glow">
               <div className="flex justify-between mb-4">
-                <h3 className="font-bold">Campañas PPC</h3>
+                <h3 className="font-bold">Campañas PPC y Display de Alto Impacto</h3>
                 <div className="w-10 h-10 flex items-center justify-center bg-red-100 rounded-md">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -426,8 +420,7 @@ export default function MarketingPage() {
                 </div>
               </div>
               <p className="text-sm text-gray-600">
-                Campañas estratégicas de publicidad de pago por clic que se dirigen a tus clientes ideales
-                y maximizan el retorno de tu inversión publicitaria.
+                Lanzamos campañas de publicidad digital orientadas a resultados, maximizando el retorno de inversión y construyendo un reconocimiento de marca sólido y diferenciador.
               </p>
 
               <div className="mt-6 pt-4 border-t border-gray-100">
@@ -447,14 +440,14 @@ export default function MarketingPage() {
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                     <path d="m9 11 3 3L22 4" />
                   </svg>
-                  Publicidad Dirigida
+                  Publicidad que impulsa el crecimiento
                 </div>
               </div>
             </div>
 
             <div className="marketing-card p-6 marketing-glow">
               <div className="flex justify-between mb-4">
-                <h3 className="font-bold">Publicidad Display</h3>
+                <h3 className="font-bold">Comunicación Personalizada y Efectiva</h3>
                 <div className="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-md">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -475,8 +468,7 @@ export default function MarketingPage() {
                 </div>
               </div>
               <p className="text-sm text-gray-600">
-                Campañas de anuncios display llamativos que construyen reconocimiento de marca
-                y generan engagement en toda la web.
+                Diseñamos estrategias de email marketing automatizadas y segmentadas para nutrir leads, fidelizar clientes y generar conversiones con un mensaje personalizado.
               </p>
 
               <div className="mt-6 pt-4 border-t border-gray-100">
@@ -496,14 +488,14 @@ export default function MarketingPage() {
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                     <path d="m9 11 3 3L22 4" />
                   </svg>
-                  Impacto Visual
+                  Relaciones que generan resultados
                 </div>
               </div>
             </div>
 
             <div className="marketing-card p-6 marketing-glow">
               <div className="flex justify-between mb-4">
-                <h3 className="font-bold">Email Marketing</h3>
+                <h3 className="font-bold">Visibilidad Global y Medible</h3>
                 <div className="w-10 h-10 flex items-center justify-center bg-green-100 rounded-md">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -523,8 +515,7 @@ export default function MarketingPage() {
                 </div>
               </div>
               <p className="text-sm text-gray-600">
-                Campañas de email marketing dirigidas que nutren leads, construyen relaciones con clientes
-                y generan conversiones.
+                Implementamos estrategias SEO avanzadas combinadas con análisis de datos para potenciar tu posicionamiento y aumentar el tráfico orgánico de manera sostenible.
               </p>
 
               <div className="mt-6 pt-4 border-t border-gray-100">
@@ -544,7 +535,7 @@ export default function MarketingPage() {
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                     <path d="m9 11 3 3L22 4" />
                   </svg>
-                  Comunicación Personalizada
+                  Posicionamiento de alto impacto
                 </div>
               </div>
             </div>
@@ -556,33 +547,31 @@ export default function MarketingPage() {
           <div className="container mx-auto">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[#FF5757]">¿Listo para Elevar tu Marca?</h2>
+                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[#FF5757]">¿Listo para Transformar tu Marca?</h2>
                 <p className="text-gray-300 mb-8">
-                  La división de marketing de Velvt Software crea estrategias poderosas para transformar la presencia de tu marca
-                  y generar un compromiso significativo con los clientes. Creemos algo extraordinario juntos.
+                  En Innovación 360 Mkt combinamos creatividad, datos y tecnología para diseñar estrategias de marketing que revolucionan tu presencia digital.
                 </p>
                 <div className="flex gap-4">
                   <Button
                     variant="default"
                     className="bg-white text-[#B30000] hover:bg-white/90 marketing-shine-effect"
                   >
-                    Comenzar
+                    Contáctanos
                   </Button>
                   <Button variant="outline" className="border-white text-white hover:bg-white/10">
-                    Saber Más
+                    Agenda tu asesoría gratuita
                   </Button>
                 </div>
               </div>
 
               <div>
                 <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg border border-white/20">
-                  <h3 className="text-xl font-bold mb-4">Únete a Nuestro Equipo</h3>
+                  <h3 className="text-xl font-bold mb-4">Descubre cómo podemos construir juntos una marca que destaque en el mercado.</h3>
                   <p className="text-gray-300 mb-6">
-                    Únete a nuestro equipo de expertos en marketing innovador que construyen estrategias
-                    que impulsan la transformación de marcas.
+                    Estrategias disruptivas de marketing digital que conectan, transforman y posicionan tu marca en la era digital.
                   </p>
                   <Button variant="link" className="text-[#FF5757] p-0 mt-2 marketing-shine-effect">
-                    Ver vacantes disponibles →
+                    Ver más servicios →
                   </Button>
                 </div>
               </div>

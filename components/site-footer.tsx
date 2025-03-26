@@ -17,12 +17,12 @@ export function SiteFooter() {
             <div className="flex items-center gap-2 mb-4">
               <Image
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/velvt_11-TCP01WCXp7jjAUls1FQiKAHwKOsUbr.png"
-                alt="Logo de Velvt Software"
+                alt="Logo de Velvt"
                 width={22}
                 height={22}
                 className="object-contain"
               />
-              <span className="font-semibold text-lg">Velvt Software</span>
+              <span className="font-semibold text-lg">Velvt</span>
             </div>
             <p className="text-sm text-gray-600">
               Soluciones de software expertas y servicios de consultoría, ayudando a empresas a construir productos innovadores.
@@ -116,7 +116,7 @@ export function SiteFooter() {
         </div>
 
         <div className="border-t border-gray-200 mt-8 pt-8 text-sm text-gray-600 flex flex-col md:flex-row justify-between">
-          <div>© {new Date().getFullYear()} Velvt Software. Todos los derechos reservados.</div>
+          <div>© {new Date().getFullYear()} Velvt. Todos los derechos reservados.</div>
           <div className="flex gap-4 mt-4 md:mt-0">
             <Link href="#" className="text-gray-600 hover:text-gray-900">
               Política de Privacidad

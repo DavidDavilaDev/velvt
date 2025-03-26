@@ -59,7 +59,7 @@ export default function Home() {
                         <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                         <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                       </div>
-                      <div className="text-xs text-white/70">velvt-software.com</div>
+                      <div className="text-xs text-white/70">velvt-consultory.com</div>
                     </div>
                     <div className="space-y-3">
                       <div className="h-6 bg-white/10 rounded w-3/4"></div>
