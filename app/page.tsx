@@ -116,7 +116,7 @@ export default function Home() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-white/70 animate-bounce"
+                className="text-white/70"
               >
                 <path d="M12 5v14" />
                 <path d="m19 12-7 7-7-7" />
