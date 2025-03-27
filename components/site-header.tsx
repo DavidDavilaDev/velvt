@@ -149,29 +149,9 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button
-            variant="default"
-            className={`${
-              isDark && !scrolled
-                ? "bg-white text-black hover:bg-white/90"
-                : `bg-${isMarketing ? "customRed" : "customPurple"} text-white hover:bg-opacity-90`
-            } btn-glow`}
-          >
-            Schedule Appointment
-          </Button>
-          <Button
-            variant="default"
-            className={`${
-              isDark && !scrolled
-                ? "bg-transparent border border-white text-white hover:bg-white/10"
-                : "bg-black text-white hover:bg-gray-900"
-            }`}
-          >
-            Login
-          </Button>
+          {/* Se han eliminado los botones de Schedule Appointment y Login */}
         </div>
       </div>
     </header>
   )
 }
-

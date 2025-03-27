@@ -1335,12 +1335,6 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <Button className="bg-customPurple hover:bg-opacity-90 px-8 py-6 text-lg btn-glow">
-                  Solicitar Cotización
-                </Button>
-                <Button
-                  variant="outline"
-                  className="px-8 py-6 text-lg border-white text-white bg-transparent hover:bg-white/10"
-                >
                   Agendar Consulta
                 </Button>
               </div>
