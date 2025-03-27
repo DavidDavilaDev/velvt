@@ -3,13 +3,13 @@
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { useState, useEffect } from "react"
 
 export function SiteHeader() {
   const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState("inicio")
 
   const isMarketing = pathname === "/marketing"
   const isSoftware = pathname === "/software"
@@ -19,6 +19,15 @@ export function SiteHeader() {
   const accentColor = isMarketing ? "customRed" : "customPurple"
 
   useEffect(() => {
+    if (pathname === "/" && window.location.hash === "#inicio") {
+      const inicioSection = document.getElementById("inicio");
+      if (inicioSection) {
+        inicioSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [pathname]);
+
+  useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY
       if (offset > 50) {
@@ -26,13 +35,40 @@ export function SiteHeader() {
       } else {
         setScrolled(false)
       }
+
+      // Check which section is currently in view
+      if (isHome) {
+        const sections = ["inicio", "servicios", "nosotros", "portafolio", "blog", "contacto", "faq"]
+
+        for (const section of sections) {
+          const element = document.getElementById(section)
+          if (element) {
+            const rect = element.getBoundingClientRect()
+            // If the section is in view (with some buffer for better UX)
+            if (rect.top <= 150 && rect.bottom >= 150) {
+              setActiveSection(section)
+              break
+            }
+          }
+        }
+      }
     }
 
     window.addEventListener("scroll", handleScroll)
     return () => {
       window.removeEventListener("scroll", handleScroll)
     }
-  }, [])
+  }, [isHome])
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 100, // Offset to account for header
+        behavior: "smooth",
+      })
+    }
+  }
 
   return (
     <header
@@ -81,40 +117,59 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
-          <Link
-            href="/"
-            className={`text-sm font-medium nav-link ${pathname === "/" ? `text-${accentColor}` : ""} ${isDark && !scrolled ? "hover:text-white/80" : `hover:text-${accentColor}`}`}
-          >
-            Inicio
-          </Link>
-          <Link
-            href="/#servicios"
-            className={`text-sm font-medium nav-link ${isDark && !scrolled ? "hover:text-white/80" : `hover:text-${accentColor}`}`}
+        <Link
+          href="/"
+          onClick={(e) => {
+            if (pathname === "/") {
+              e.preventDefault();
+              scrollToSection("inicio");
+              setActiveSection("inicio"); // Forzar estado activo
+            }
+          }}
+          className={`text-sm font-medium nav-link ${
+            (pathname === "/" && activeSection === "inicio") ? `text-${accentColor} active` : ""
+          } ${
+            isDark && !scrolled ? "hover:text-white/80" : `hover:text-${accentColor}`
+          }`}
+        >
+          Inicio
+        </Link>
+          <button
+            onClick={() => scrollToSection("servicios")}
+            className={`text-sm font-medium nav-link ${
+              activeSection === "servicios" ? `text-${accentColor} active` : ""
+            } ${isDark && !scrolled ? "hover:text-white/80" : `hover:text-${accentColor}`}`}
           >
             Servicios
-          </Link>
-          <Link
-            href="/#nosotros"
-            className={`text-sm font-medium nav-link ${isDark && !scrolled ? "hover:text-white/80" : `hover:text-${accentColor}`}`}
+          </button>
+          <button
+            onClick={() => scrollToSection("nosotros")}
+            className={`text-sm font-medium nav-link ${
+              activeSection === "nosotros" ? `text-${accentColor} active` : ""
+            } ${isDark && !scrolled ? "hover:text-white/80" : `hover:text-${accentColor}`}`}
           >
             Nosotros
-          </Link>
-          <Link
-            href="/#portafolio"
-            className={`text-sm font-medium nav-link ${isDark && !scrolled ? "hover:text-white/80" : `hover:text-${accentColor}`}`}
+          </button>
+          <button
+            onClick={() => scrollToSection("portafolio")}
+            className={`text-sm font-medium nav-link ${
+              activeSection === "portafolio" ? `text-${accentColor} active` : ""
+            } ${isDark && !scrolled ? "hover:text-white/80" : `hover:text-${accentColor}`}`}
           >
             Portafolio
-          </Link>
-          <Link
-            href="/#contacto"
-            className={`text-sm font-medium nav-link ${isDark && !scrolled ? "hover:text-white/80" : `hover:text-${accentColor}`}`}
+          </button>
+          <button
+            onClick={() => scrollToSection("contacto")}
+            className={`text-sm font-medium nav-link ${
+              activeSection === "contacto" ? `text-${accentColor} active` : ""
+            } ${isDark && !scrolled ? "hover:text-white/80" : `hover:text-${accentColor}`}`}
           >
             Contacto
-          </Link>
+          </button>
           <DropdownMenu>
             <DropdownMenuTrigger
               className={`text-sm font-medium nav-link flex items-center gap-1 ${
-                pathname.includes("/software") || pathname.includes("/marketing") ? `text-${accentColor}` : ""
+                pathname.includes("/software") || pathname.includes("/marketing") ? `text-${accentColor} active` : ""
               } ${isDark && !scrolled ? "hover:text-white/80" : `hover:text-${accentColor}`}`}
             >
               Industrias
@@ -155,3 +210,4 @@ export function SiteHeader() {
     </header>
   )
 }
+

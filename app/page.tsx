@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -7,8 +9,34 @@ import { SiteFooter } from "@/components/site-footer"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import CalendlyWidget from "@/components/CalendlyWidget"
+import { useEffect } from "react"
 
 export default function Home() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animated")
+          }
+        })
+      },
+      { threshold: 0.1 },
+    )
+
+    const scrollElements = document.querySelectorAll(".scroll-animate")
+    scrollElements.forEach((el) => {
+      observer.observe(el)
+    })
+
+    return () => {
+      scrollElements.forEach((el) => {
+        observer.unobserve(el)
+      })
+    }
+  }, [])
+
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
@@ -19,15 +47,16 @@ export default function Home() {
           <div className="hero-shapes"></div>
           <div className="container mx-auto px-4 py-20 hero-content">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-              <h1 className="hero-heading">
+              <div className="scroll-animate">
+                <h1 className="hero-heading">
                   Boost your
                   <br />
                   business.
                 </h1>
                 <p className="hero-description mb-8">
-                  En Velvt, creamos soluciones personalizadas que abordan las necesidades únicas de tu negocio, mejorando
-                  el rendimiento, la eficiencia y dándote una ventaja competitiva en un mundo digital en constante cambio.
+                  En Velvt, creamos soluciones personalizadas que abordan las necesidades únicas de tu negocio,
+                  mejorando el rendimiento, la eficiencia y dándote una ventaja competitiva en un mundo digital en
+                  constante cambio.
                 </p>
 
                 <div className="flex gap-4 mt-12">
@@ -48,7 +77,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="hidden md:flex justify-center">
+              <div className="hidden md:flex justify-center scroll-animate" style={{ animationDelay: "0.3s" }}>
                 <div className="relative w-full max-w-md floating-animation">
                   <div className="blob-bg left-0 top-0"></div>
                   <div className="blob-bg right-0 bottom-0" style={{ animationDelay: "-5s" }}></div>
@@ -87,7 +116,7 @@ export default function Home() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-white/70"
+                className="text-white/70 animate-bounce"
               >
                 <path d="M12 5v14" />
                 <path d="m19 12-7 7-7-7" />
@@ -99,7 +128,7 @@ export default function Home() {
         {/* 2. Servicios */}
         <section id="servicios" className="py-24 px-4 parallax-bg">
           <div className="container mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 scroll-animate">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Nuestros Servicios</h2>
               <div className="w-24 h-1 bg-customPurple mx-auto mb-6"></div>
               <p className="text-gray-600 max-w-2xl mx-auto">
@@ -110,7 +139,10 @@ export default function Home() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Desarrollo de Software */}
-              <div className="relative overflow-hidden rounded-xl shadow-lg bg-white border border-gray-100">
+              <div
+                className="relative overflow-hidden rounded-xl shadow-lg bg-white border border-gray-100 scroll-animate"
+                style={{ animationDelay: "0.1s" }}
+              >
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 to-indigo-600"></div>
                 <div className="absolute -right-20 -top-20 w-40 h-40 bg-purple-100 rounded-full opacity-20"></div>
                 <div className="p-6 relative z-10">
@@ -222,7 +254,10 @@ export default function Home() {
               </div>
 
               {/* Marketing Digital */}
-              <div className="relative overflow-hidden rounded-xl shadow-lg bg-white border border-gray-100">
+              <div
+                className="relative overflow-hidden rounded-xl shadow-lg bg-white border border-gray-100 scroll-animate"
+                style={{ animationDelay: "0.2s" }}
+              >
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-400 to-red-600"></div>
                 <div className="absolute -right-20 -top-20 w-40 h-40 bg-red-100 rounded-full opacity-20"></div>
                 <div className="p-6 relative z-10">
@@ -330,7 +365,10 @@ export default function Home() {
               </div>
 
               {/* Consultoría y Estrategia */}
-              <div className="relative overflow-hidden rounded-xl shadow-lg bg-white border border-gray-100">
+              <div
+                className="relative overflow-hidden rounded-xl shadow-lg bg-white border border-gray-100 scroll-animate"
+                style={{ animationDelay: "0.3s" }}
+              >
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600"></div>
                 <div className="absolute -right-20 -top-20 w-40 h-40 bg-blue-100 rounded-full opacity-20"></div>
                 <div className="p-6 relative z-10">
@@ -441,7 +479,7 @@ export default function Home() {
 
             {/* Casos de Éxito */}
             <div className="mt-24">
-              <div className="text-center mb-16">
+              <div className="text-center mb-16 scroll-animate">
                 <h3 className="text-2xl md:text-3xl font-bold mb-4">Casos de Éxito</h3>
                 <div className="w-20 h-1 bg-customPurple mx-auto mb-6"></div>
                 <p className="text-gray-600 max-w-2xl mx-auto">
@@ -450,7 +488,10 @@ export default function Home() {
               </div>
 
               <div className="grid md:grid-cols-3 gap-8">
-                <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                <Card
+                  className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 scroll-animate"
+                  style={{ animationDelay: "0.1s" }}
+                >
                   <div className="h-48 relative">
                     <Image src="/placeholder.svg?height=200&width=400" alt="Proyecto 1" fill className="object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
@@ -474,7 +515,10 @@ export default function Home() {
                   </div>
                 </Card>
 
-                <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                <Card
+                  className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 scroll-animate"
+                  style={{ animationDelay: "0.2s" }}
+                >
                   <div className="h-48 relative">
                     <Image src="/placeholder.svg?height=200&width=400" alt="Proyecto 2" fill className="object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
@@ -497,7 +541,10 @@ export default function Home() {
                   </div>
                 </Card>
 
-                <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                <Card
+                  className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 scroll-animate"
+                  style={{ animationDelay: "0.3s" }}
+                >
                   <div className="h-48 relative">
                     <Image src="/placeholder.svg?height=200&width=400" alt="Proyecto 3" fill className="object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
@@ -528,7 +575,9 @@ export default function Home() {
         {/* Sección de Tecnologías */}
         <section className="gradient-section py-24 px-4 text-center text-white">
           <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-shadow">Tecnologías que Utilizamos</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-shadow scroll-animate">
+              Tecnologías que Utilizamos
+            </h2>
             <div className="w-24 h-1 bg-white mx-auto mb-12"></div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
@@ -538,7 +587,11 @@ export default function Home() {
                 { name: "Base de Datos", icon: "database", items: ["MongoDB", "PostgreSQL", "MySQL"] },
                 { name: "Nube", icon: "cloud", items: ["AWS", "Google Cloud", "Vercel"] },
               ].map((stack, i) => (
-                <div key={i} className="glass-card p-6 rounded-xl">
+                <div
+                  key={i}
+                  className="glass-card p-6 rounded-xl scroll-animate"
+                  style={{ animationDelay: `${0.1 * i}s` }}
+                >
                   <div className="w-16 h-16 mx-auto bg-white/10 rounded-full flex items-center justify-center mb-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -596,8 +649,8 @@ export default function Home() {
 
         {/* 3. Nosotros */}
         <section id="nosotros" className="py-24 px-4 parallax-bg">
-          <div className="container mx-auto">
-            <div className="text-center mb-16">
+          <div className="container mx-auto max-w-7xl">
+            <div className="text-center mb-16 scroll-animate">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Nosotros</h2>
               <div className="w-24 h-1 bg-customPurple mx-auto mb-6"></div>
               <p className="text-gray-600 max-w-2xl mx-auto">
@@ -605,20 +658,22 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h3 className="text-2xl font-bold mb-6">Nuestra Historia</h3>
-                <div className="relative pl-6 mb-8">
-                  <p className="text-gray-600 mb-6">
-                    Fundada en 2025, Velvt nació con la misión de transformar la manera en que las empresas
-                    abordan sus desafíos digitales. Lo que comenzó como un pequeño equipo de consultores tecnológicos,
-                    ha evolucionado en una firma integral que ofrece soluciones de software y marketing para empresas de
-                    todos los tamaños.
-                  </p>
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              <div className="space-y-8">
+                <div className="scroll-animate">
+                  <h3 className="text-2xl font-bold mb-6">Nuestra Historia</h3>
+                  <div className="bg-white p-6 rounded-lg shadow-md mb-8">
+                    <p className="text-gray-600">
+                      Fundada en 2025, Velvt nació con la misión de transformar la manera en que las empresas abordan
+                      sus desafíos digitales. Lo que comenzó como un pequeño equipo de consultores tecnológicos, ha
+                      evolucionado en una firma integral que ofrece soluciones de software y marketing para empresas de
+                      todos los tamaños.
+                    </p>
+                  </div>
                 </div>
 
-                <div className="space-y-8 mt-12">
-                  <div className="bg-white p-6 rounded-lg shadow-md">
+                <div className="space-y-4">
+                  <div className="bg-white p-6 rounded-lg shadow-md scroll-animate" style={{ animationDelay: "0.1s" }}>
                     <h4 className="font-bold text-lg mb-3 flex items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -643,7 +698,7 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <div className="bg-white p-6 rounded-lg shadow-md">
+                  <div className="bg-white p-6 rounded-lg shadow-md scroll-animate" style={{ animationDelay: "0.2s" }}>
                     <h4 className="font-bold text-lg mb-3 flex items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -669,7 +724,7 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <div className="bg-white p-6 rounded-lg shadow-md">
+                  <div className="bg-white p-6 rounded-lg shadow-md scroll-animate" style={{ animationDelay: "0.3s" }}>
                     <h4 className="font-bold text-lg mb-3 flex items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -770,67 +825,69 @@ export default function Home() {
                 </div>
               </div>
 
-              <div>
-                <h3 className="text-2xl font-bold mb-8">Nuestro Equipo</h3>
-                <div className="grid grid-cols-2 gap-8">
-                  {[
-                    { name: "Miguel Moran", role: "CEO & Fundador" },
-                    { name: "David Dávila", role: "CTO & Fundador" },
-                    { name: "Alan Muñoz", role: "Director de Marketing" },
-                    { name: "Perla Gomez", role: "Gerente de Estrategia Digital" },
-                  ].map((member, i) => (
-                    <div key={i} className="text-center">
-                      <div className="w-32 h-32 mx-auto rounded-full overflow-hidden mb-4 gradient-border p-1">
-                        <div className="w-full h-full rounded-full overflow-hidden">
-                          <Image
-                            src="/placeholder.svg?height=128&width=128"
-                            alt={member.name}
-                            width={128}
-                            height={128}
-                            className="object-cover"
-                          />
+              <div className="space-y-8">
+                <h3 className="text-2xl font-bold mb-8 scroll-animate">Nuestro Equipo</h3>
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                  <div className="grid grid-cols-2 gap-8">
+                    {[
+                      { name: "Miguel Moran", role: "CEO & Fundador" },
+                      { name: "David Dávila", role: "CTO & Fundador" },
+                      { name: "Alan Muñoz", role: "Director de Marketing" },
+                      { name: "Perla Gomez", role: "Gerente de Estrategia Digital" },
+                    ].map((member, i) => (
+                      <div key={i} className="text-center scroll-animate" style={{ animationDelay: `${0.1 * i}s` }}>
+                        <div className="w-24 h-24 mx-auto rounded-full overflow-hidden mb-4 gradient-border p-1">
+                          <div className="w-full h-full rounded-full overflow-hidden">
+                            <Image
+                              src="/placeholder.svg?height=96&width=96"
+                              alt={member.name}
+                              width={96}
+                              height={96}
+                              className="object-cover"
+                            />
+                          </div>
+                        </div>
+                        <h4 className="font-bold text-lg">{member.name}</h4>
+                        <p className="text-sm text-gray-600">{member.role}</p>
+                        <div className="flex justify-center space-x-2 mt-2">
+                          {["linkedin", "twitter"].map((social) => (
+                            <a
+                              key={social}
+                              href="#"
+                              className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full hover:bg-purple-100 transition-colors"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                className="text-gray-600 hover:text-customPurple transition-colors"
+                              >
+                                {social === "linkedin" && (
+                                  <>
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                    <rect width="4" height="12" x="2" y="9" />
+                                    <circle cx="4" cy="4" r="2" />
+                                  </>
+                                )}
+                                {social === "twitter" && (
+                                  <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+                                )}
+                              </svg>
+                            </a>
+                          ))}
                         </div>
                       </div>
-                      <h4 className="font-bold text-lg">{member.name}</h4>
-                      <p className="text-sm text-gray-600">{member.role}</p>
-                      <div className="flex justify-center space-x-2 mt-2">
-                        {["linkedin", "twitter"].map((social) => (
-                          <a
-                            key={social}
-                            href="#"
-                            className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full hover:bg-purple-100 transition-colors"
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="16"
-                              height="16"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="text-gray-600 hover:text-customPurple transition-colors"
-                            >
-                              {social === "linkedin" && (
-                                <>
-                                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                                  <rect width="4" height="12" x="2" y="9" />
-                                  <circle cx="4" cy="4" r="2" />
-                                </>
-                              )}
-                              {social === "twitter" && (
-                                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-                              )}
-                            </svg>
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
 
-                <div className="mt-12 p-6 bg-gray-50 rounded-lg border border-gray-200">
+                <div className="bg-white p-6 rounded-lg shadow-md scroll-animate">
                   <h4 className="font-bold text-lg mb-4">¿Quieres unirte a nuestro equipo?</h4>
                   <p className="text-gray-600 mb-4">
                     Estamos siempre en búsqueda de talento apasionado por la tecnología y la innovación.
@@ -847,7 +904,7 @@ export default function Home() {
         {/* 4. Portafolio / Proyectos */}
         <section id="portafolio" className="py-24 px-4 bg-gray-50">
           <div className="container mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 scroll-animate">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Portafolio</h2>
               <div className="w-24 h-1 bg-customPurple mx-auto mb-6"></div>
               <p className="text-gray-600 max-w-2xl mx-auto">
@@ -858,7 +915,11 @@ export default function Home() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {Array.from({ length: 6 }).map((_, i) => (
-                <Card key={i} className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group">
+                <Card
+                  key={i}
+                  className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group scroll-animate"
+                  style={{ animationDelay: `${0.1 * i}s` }}
+                >
                   <div className="h-64 relative">
                     <Image
                       src={`/placeholder.svg?height=300&width=400&text=Proyecto ${i + 1}`}
@@ -897,7 +958,7 @@ export default function Home() {
 
             {/* Testimonios */}
             <div className="mt-24">
-              <div className="text-center mb-16">
+              <div className="text-center mb-16 scroll-animate">
                 <h3 className="text-2xl md:text-3xl font-bold mb-4">Testimonios</h3>
                 <div className="w-20 h-1 bg-customPurple mx-auto mb-6"></div>
                 <p className="text-gray-600 max-w-2xl mx-auto">Lo que nuestros clientes dicen sobre nosotros.</p>
@@ -921,7 +982,11 @@ export default function Home() {
                     text: "La automatización de procesos implementada por Velvt nos ha permitido reducir costos y aumentar la eficiencia. Un socio estratégico para cualquier empresa.",
                   },
                 ].map((testimonial, i) => (
-                  <Card key={i} className="p-8 testimonial-card">
+                  <Card
+                    key={i}
+                    className="p-8 testimonial-card scroll-animate"
+                    style={{ animationDelay: `${0.1 * i}s` }}
+                  >
                     <div className="flex items-center mb-6">
                       <div className="w-14 h-14 rounded-full bg-gray-200 mr-4 flex items-center justify-center">
                         <svg
@@ -975,7 +1040,7 @@ export default function Home() {
         {/* 5. Blog / Recursos */}
         <section id="blog" className="py-24 px-4 parallax-bg">
           <div className="container mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 scroll-animate">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Blog</h2>
               <div className="w-24 h-1 bg-customPurple mx-auto mb-6"></div>
               <p className="text-gray-600 max-w-2xl mx-auto">
@@ -1001,7 +1066,11 @@ export default function Home() {
                   date: "10 May 2023",
                 },
               ].map((post, i) => (
-                <Card key={i} className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group">
+                <Card
+                  key={i}
+                  className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group scroll-animate"
+                  style={{ animationDelay: `${0.1 * i}s` }}
+                >
                   <div className="h-48 relative">
                     <Image
                       src={`/placeholder.svg?height=200&width=400&text=Blog ${i + 1}`}
@@ -1033,7 +1102,7 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="text-center mt-12">
+            <div className="text-center mt-12 scroll-animate">
               <Button variant="outline" className="border-customPurple text-customPurple hover:bg-purple-50">
                 Ver Todos los Artículos
               </Button>
@@ -1044,7 +1113,7 @@ export default function Home() {
         {/* 6. Contacto */}
         <section id="contacto" className="py-24 px-4 bg-gray-50">
           <div className="container mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 scroll-animate">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Contacto</h2>
               <div className="w-24 h-1 bg-customPurple mx-auto mb-6"></div>
               <p className="text-gray-600 max-w-2xl mx-auto">
@@ -1053,7 +1122,7 @@ export default function Home() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-12">
-              <div className="gradient-border">
+              <div className="gradient-border scroll-animate">
                 <div className="gradient-border-content p-8 bg-white rounded-lg">
                   <form className="space-y-6">
                     <div className="grid grid-cols-2 gap-4">
@@ -1109,7 +1178,7 @@ export default function Home() {
               </div>
 
               <div>
-                <div className="bg-white p-8 rounded-lg shadow-sm mb-8">
+                <div className="bg-white p-8 rounded-lg shadow-sm mb-8 scroll-animate">
                   <h3 className="font-bold text-xl mb-6 flex items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -1202,7 +1271,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="bg-white p-8 rounded-lg shadow-sm">
+                <div className="bg-white p-8 rounded-lg shadow-sm scroll-animate">
                   <h3 className="font-bold text-xl mb-6 flex items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -1273,7 +1342,7 @@ export default function Home() {
         {/* 7. FAQ / Preguntas Frecuentes */}
         <section id="faq" className="py-24 px-4 parallax-bg">
           <div className="container mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 scroll-animate">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Preguntas Frecuentes</h2>
               <div className="w-24 h-1 bg-customPurple mx-auto mb-6"></div>
               <p className="text-gray-600 max-w-2xl mx-auto">
@@ -1310,7 +1379,12 @@ export default function Home() {
                       "Absolutamente. Tenemos experiencia trabajando con startups, pequeñas y medianas empresas, así como con grandes corporaciones. Adaptamos nuestras soluciones y servicios según las necesidades y presupuesto de cada cliente.",
                   },
                 ].map((faq, i) => (
-                  <AccordionItem key={i} value={`item-${i}`} className="border rounded-lg bg-white shadow-sm">
+                  <AccordionItem
+                    key={i}
+                    value={`item-${i}`}
+                    className="border rounded-lg bg-white shadow-sm scroll-animate"
+                    style={{ animationDelay: `${0.1 * i}s` }}
+                  >
                     <AccordionTrigger className="text-left font-medium px-6 py-4 hover:no-underline hover:bg-gray-50 rounded-t-lg">
                       {faq.question}
                     </AccordionTrigger>
@@ -1326,7 +1400,7 @@ export default function Home() {
         <section id="cotizacion" className="py-24 px-4 hero-section">
           <div className="hero-shapes" style={{ opacity: 0.3 }}></div>
           <div className="container mx-auto relative z-10">
-            <div className="max-w-3xl mx-auto text-center text-white">
+            <div className="max-w-3xl mx-auto text-center text-white scroll-animate">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-shadow">¿Listo para impulsar tu negocio?</h2>
               <p className="text-white/80 mb-12 text-lg">
                 Agenda una consulta gratuita con nuestros expertos y descubre cómo podemos ayudarte a alcanzar tus
@@ -1341,9 +1415,11 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <CalendlyWidget />
       </main>
 
       <SiteFooter />
     </div>
   )
 }
+
